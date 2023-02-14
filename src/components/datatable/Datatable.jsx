@@ -20,7 +20,7 @@ const Datatable = ({columns}) => {
 
     const handleDelete = async (id) => {
         try{
-            await axios.delete(`/${path}/${id}`);
+            await axios.delete(`${process.env.URL}/${path}/${id}`);
         } catch (err) {
             console.log(err.message)
         }
