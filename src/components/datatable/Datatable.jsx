@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import './datatable.scss'
 import { DataGrid } from '@mui/x-data-grid';
-import {userColumns} from '../../datatablesource'
 import { Link, useLocation } from 'react-router-dom';
 import useFetch from '../../hooks/useFetch';
 import axios from 'axios';
@@ -9,18 +8,19 @@ import axios from 'axios';
 const Datatable = ({columns}) => {
     const location = useLocation();
     const path = location.pathname.split("/")[1];
-    const {data, loading, error} = useFetch(`${process.env.URL}/${path}`)
+    const {data, loading, error} = useFetch(`${process.env.REACT_APP_URL}/${path}`)
     const [list, setList] = useState([])
 
     useEffect(() => {
       setList(data)
-    
+        console.log(location.pathname)
+        console.log("URL is " + process.env.REACT_APP_URL + "/" + path)
     }, [data])
     
 
     const handleDelete = async (id) => {
         try{
-            await axios.delete(`${process.env.URL}/${path}/${id}`);
+            await axios.delete(`${process.env.REACT_APP_URL}/${path}/${id}`);
         } catch (err) {
             console.log(err.message)
         }

@@ -29,7 +29,7 @@ const New = () => {
         img: url,
       }
 
-      await axios.post(`${process.env.URL}/auth/register`, newUser)
+      await axios.post(`${process.env.REACT_APP_URL}/auth/register`, newUser)
 
     } catch (error) {
       console.log(error)
