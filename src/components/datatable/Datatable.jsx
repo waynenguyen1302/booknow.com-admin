@@ -9,7 +9,7 @@ import axios from 'axios';
 const Datatable = ({columns}) => {
     const location = useLocation();
     const path = location.pathname.split("/")[1];
-    const {data, loading, error} = useFetch(`/${path}`)
+    const {data, loading, error} = useFetch(`${process.env.URL}/${path}`)
     const [list, setList] = useState([])
 
     useEffect(() => {
