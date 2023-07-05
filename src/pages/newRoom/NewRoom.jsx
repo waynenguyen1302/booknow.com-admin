@@ -14,7 +14,7 @@ const NewRoom = () => {
   const [rooms, setRooms] = useState([])
   const [hotelId, setHotelId] = useState(undefined);
 
-  const { data, loading, error } = useFetch("/hotels");
+  const { data, loading, error } = useFetch(`${process.env.REACT_APP_URL}/hotels`);
 
   const handleChange = (e) => {
     setInfo((prev) => ({ ...prev, [e.target.id]: e.target.value }));
